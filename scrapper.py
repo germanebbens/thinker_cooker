@@ -38,8 +38,6 @@ def get_new_page(url):
     url_next_page = html_entire.find('a', class_='next ga', href = True)
     return url_next_page.get("href")
     
-
-
 def get_many_recipes_urls(initial_url, pages):
     """
     Get url's from many pages, iterate through the pages getting urls. 
@@ -66,11 +64,12 @@ def create_recipes(href_list):
     Input: List of urls
     Output: Dataframe with information
     """
-    ingredient_list = []
-    steps_list = []
     recipes_df = pd.DataFrame(columns=['recipe_id','url','title','ingredients','steps','diners','duration','difficulty'])
 
     for i in range(len(href_list)-1):
+        ingredient_list = []
+        steps_list = []
+        
         resp = requests.get(href_list[i])
         html_entire = BeautifulSoup(resp.content, 'html.parser')
 
@@ -85,14 +84,14 @@ def create_recipes(href_list):
         
         try:
             for i in html_entire.find_all('li', class_='ingrediente'):
-                ingredient_list.append(i.text)
+                ingredient_list.append(str(i.text))
         except:
             ingredient_list = None
             print("no encontre ingredient_list")
 
         try:    
             for i in html_entire.find_all('div', class_='apartado'):
-                steps_list.append(i.text)
+                steps_list.append(str(i.text))
         except:
             steps_list = None
             print("no encontre steps_list")
