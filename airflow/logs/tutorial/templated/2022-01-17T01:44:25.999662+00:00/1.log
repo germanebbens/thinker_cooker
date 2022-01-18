@@ -1,0 +1,42 @@
+[2022-01-16 22:47:56,848] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: tutorial.templated manual__2022-01-17T01:44:25.999662+00:00 [queued]>
+[2022-01-16 22:47:56,852] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: tutorial.templated manual__2022-01-17T01:44:25.999662+00:00 [queued]>
+[2022-01-16 22:47:56,852] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-16 22:47:56,853] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2022-01-16 22:47:56,853] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-16 22:47:56,864] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): templated> on 2022-01-17 01:44:25.999662+00:00
+[2022-01-16 22:47:56,867] {standard_task_runner.py:52} INFO - Started process 28306 to run task
+[2022-01-16 22:47:56,877] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'tutorial', 'templated', 'manual__2022-01-17T01:44:25.999662+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/scrapping.py', '--cfg-path', '/var/folders/mm/k1kps8kd6vz926ggdf5crlr80000gn/T/tmpjz21va5q', '--error-file', '/var/folders/mm/k1kps8kd6vz926ggdf5crlr80000gn/T/tmpwhpf9qn5']
+[2022-01-16 22:47:56,882] {standard_task_runner.py:77} INFO - Job 9: Subtask templated
+[2022-01-16 22:48:01,970] {logging_mixin.py:109} INFO - Running <TaskInstance: tutorial.templated manual__2022-01-17T01:44:25.999662+00:00 [running]> on host Germans-MacBook-Pro.local
+[2022-01-16 22:48:07,051] {taskinstance.py:1424} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@example.com
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=tutorial
+AIRFLOW_CTX_TASK_ID=templated
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-17T01:44:25.999662+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-01-17T01:44:25.999662+00:00
+[2022-01-16 22:48:07,052] {subprocess.py:62} INFO - Tmp dir root location: 
+ /var/folders/mm/k1kps8kd6vz926ggdf5crlr80000gn/T
+[2022-01-16 22:48:07,053] {subprocess.py:74} INFO - Running command: ['bash', '-c', '\n\n    echo "2022-01-17"\n    echo "2022-01-24"\n    echo "Parameter I passed in"\n\n    echo "2022-01-17"\n    echo "2022-01-24"\n    echo "Parameter I passed in"\n\n    echo "2022-01-17"\n    echo "2022-01-24"\n    echo "Parameter I passed in"\n\n    echo "2022-01-17"\n    echo "2022-01-24"\n    echo "Parameter I passed in"\n\n    echo "2022-01-17"\n    echo "2022-01-24"\n    echo "Parameter I passed in"\n']
+[2022-01-16 22:48:07,086] {subprocess.py:85} INFO - Output:
+[2022-01-16 22:48:07,089] {subprocess.py:89} INFO - 2022-01-17
+[2022-01-16 22:48:07,089] {subprocess.py:89} INFO - 2022-01-24
+[2022-01-16 22:48:07,090] {subprocess.py:89} INFO - Parameter I passed in
+[2022-01-16 22:48:07,091] {subprocess.py:89} INFO - 2022-01-17
+[2022-01-16 22:48:07,091] {subprocess.py:89} INFO - 2022-01-24
+[2022-01-16 22:48:07,091] {subprocess.py:89} INFO - Parameter I passed in
+[2022-01-16 22:48:07,092] {subprocess.py:89} INFO - 2022-01-17
+[2022-01-16 22:48:07,092] {subprocess.py:89} INFO - 2022-01-24
+[2022-01-16 22:48:07,092] {subprocess.py:89} INFO - Parameter I passed in
+[2022-01-16 22:48:07,093] {subprocess.py:89} INFO - 2022-01-17
+[2022-01-16 22:48:07,093] {subprocess.py:89} INFO - 2022-01-24
+[2022-01-16 22:48:07,094] {subprocess.py:89} INFO - Parameter I passed in
+[2022-01-16 22:48:07,094] {subprocess.py:89} INFO - 2022-01-17
+[2022-01-16 22:48:07,096] {subprocess.py:89} INFO - 2022-01-24
+[2022-01-16 22:48:07,096] {subprocess.py:89} INFO - Parameter I passed in
+[2022-01-16 22:48:07,097] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-01-16 22:48:07,117] {taskinstance.py:1267} INFO - Marking task as SUCCESS. dag_id=tutorial, task_id=templated, execution_date=20220117T014425, start_date=20220117T014756, end_date=20220117T014807
+[2022-01-16 22:48:07,161] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-16 22:48:07,197] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

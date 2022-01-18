@@ -1,0 +1,42 @@
+[2022-01-16 22:45:26,791] {processor.py:163} INFO - Started process (PID=28117) to work on /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:45:26,791] {processor.py:642} INFO - Processing file /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py for tasks to queue
+[2022-01-16 22:45:26,792] {logging_mixin.py:109} INFO - [2022-01-16 22:45:26,792] {dagbag.py:500} INFO - Filling up the DagBag from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:45:26,823] {processor.py:654} INFO - DAG(s) dict_keys(['tutorial']) retrieved from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:45:27,058] {logging_mixin.py:109} INFO - [2022-01-16 22:45:27,058] {dag.py:2396} INFO - Sync 1 DAGs
+[2022-01-16 22:45:27,068] {logging_mixin.py:109} INFO - [2022-01-16 22:45:27,068] {dag.py:2935} INFO - Setting next_dagrun for tutorial to 2022-01-17T01:43:39.661706+00:00
+[2022-01-16 22:45:27,077] {processor.py:171} INFO - Processing /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py took 0.287 seconds
+[2022-01-16 22:48:13,290] {processor.py:163} INFO - Started process (PID=28327) to work on /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:48:13,291] {processor.py:642} INFO - Processing file /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py for tasks to queue
+[2022-01-16 22:48:13,300] {logging_mixin.py:109} INFO - [2022-01-16 22:48:13,300] {dagbag.py:500} INFO - Filling up the DagBag from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:48:13,379] {processor.py:654} INFO - DAG(s) dict_keys(['tutorial']) retrieved from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:48:13,443] {logging_mixin.py:109} INFO - [2022-01-16 22:48:13,443] {dag.py:2396} INFO - Sync 1 DAGs
+[2022-01-16 22:48:13,481] {logging_mixin.py:109} INFO - [2022-01-16 22:48:13,481] {dag.py:2935} INFO - Setting next_dagrun for tutorial to 2022-01-17T01:43:39.661706+00:00
+[2022-01-16 22:48:13,497] {processor.py:171} INFO - Processing /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py took 0.208 seconds
+[2022-01-16 22:49:25,199] {processor.py:163} INFO - Started process (PID=28372) to work on /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:49:25,199] {processor.py:642} INFO - Processing file /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py for tasks to queue
+[2022-01-16 22:49:25,199] {logging_mixin.py:109} INFO - [2022-01-16 22:49:25,199] {dagbag.py:500} INFO - Filling up the DagBag from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:49:25,238] {processor.py:654} INFO - DAG(s) dict_keys(['tutorial']) retrieved from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:49:25,259] {logging_mixin.py:109} INFO - [2022-01-16 22:49:25,257] {dag.py:2396} INFO - Sync 1 DAGs
+[2022-01-16 22:49:25,272] {logging_mixin.py:109} INFO - [2022-01-16 22:49:25,272] {dag.py:2935} INFO - Setting next_dagrun for tutorial to 2022-01-17T01:43:39.661706+00:00
+[2022-01-16 22:49:25,302] {processor.py:171} INFO - Processing /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py took 0.104 seconds
+[2022-01-16 22:50:56,224] {processor.py:163} INFO - Started process (PID=28433) to work on /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:50:56,225] {processor.py:642} INFO - Processing file /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py for tasks to queue
+[2022-01-16 22:50:56,225] {logging_mixin.py:109} INFO - [2022-01-16 22:50:56,225] {dagbag.py:500} INFO - Filling up the DagBag from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:50:56,267] {processor.py:654} INFO - DAG(s) dict_keys(['tutorial']) retrieved from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:50:56,589] {logging_mixin.py:109} INFO - [2022-01-16 22:50:56,589] {dag.py:2396} INFO - Sync 1 DAGs
+[2022-01-16 22:50:56,598] {logging_mixin.py:109} INFO - [2022-01-16 22:50:56,598] {dag.py:2935} INFO - Setting next_dagrun for tutorial to 2022-01-17T01:43:39.661706+00:00
+[2022-01-16 22:50:56,610] {processor.py:171} INFO - Processing /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py took 0.386 seconds
+[2022-01-16 22:52:00,087] {processor.py:163} INFO - Started process (PID=28470) to work on /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:52:00,087] {processor.py:642} INFO - Processing file /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py for tasks to queue
+[2022-01-16 22:52:00,088] {logging_mixin.py:109} INFO - [2022-01-16 22:52:00,088] {dagbag.py:500} INFO - Filling up the DagBag from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:52:00,122] {processor.py:654} INFO - DAG(s) dict_keys(['tutorial']) retrieved from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:52:00,138] {logging_mixin.py:109} INFO - [2022-01-16 22:52:00,138] {dag.py:2396} INFO - Sync 1 DAGs
+[2022-01-16 22:52:00,147] {logging_mixin.py:109} INFO - [2022-01-16 22:52:00,147] {dag.py:2935} INFO - Setting next_dagrun for tutorial to 2022-01-17T01:43:39.661706+00:00
+[2022-01-16 22:52:00,155] {processor.py:171} INFO - Processing /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py took 0.069 seconds
+[2022-01-16 22:53:13,734] {processor.py:163} INFO - Started process (PID=28547) to work on /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:53:13,734] {processor.py:642} INFO - Processing file /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py for tasks to queue
+[2022-01-16 22:53:13,734] {logging_mixin.py:109} INFO - [2022-01-16 22:53:13,734] {dagbag.py:500} INFO - Filling up the DagBag from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:53:13,800] {processor.py:654} INFO - DAG(s) dict_keys(['tutorial']) retrieved from /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py
+[2022-01-16 22:53:14,491] {logging_mixin.py:109} INFO - [2022-01-16 22:53:14,490] {dag.py:2396} INFO - Sync 1 DAGs
+[2022-01-16 22:53:14,507] {logging_mixin.py:109} INFO - [2022-01-16 22:53:14,507] {dag.py:2935} INFO - Setting next_dagrun for tutorial to 2022-01-17T01:43:39.661706+00:00
+[2022-01-16 22:53:14,521] {processor.py:171} INFO - Processing /Users/german/Desktop/thinker_cooker/airflow/dags/scrapping.py took 0.788 seconds

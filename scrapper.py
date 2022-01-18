@@ -6,6 +6,7 @@ import time
 import sys
 
 URL_INIT = "https://www.recetasgratis.net/Recetas-de-Aperitivos-tapas-listado_receta-1_1.html"
+URL_HOME = 'https://www.recetasgratis.net/'
 
 
 def get_urls_create_list(url):
@@ -129,12 +130,38 @@ def create_recipes(href_list):
 
     return recipes_df
     
+def obtain_main_categories(url):
+    """
+    This funtion obtain all categories urls for start to scrapping.
+    Input: home url
+    Output: list with all categories url
+    """
+    resp = requests.get(url)
+    html_entire = BeautifulSoup(resp.content, 'html.parser')
+    list_categories = []
+    for i in html_entire.find_all('a', class_='titulo', href = True):
+        list_categories.append(i.get('href'))
+    return list_categories
+        
 
 if __name__ == "__main__":
+    """
+    the first function obtain all categories url, because the web that i take, doesn't have a one page with all recipes, 
+    but in the categories url we have a big list of recipes from each categories, so:
+    1. first obtain all categories url
+    2. iterate for each categories url and obtain each publication with recipes
+    3. save the url of recipes in a list and go to the next page, this iterate for the number of pages indicates in the second function input
+    4. enter inside each publication and save the information that i wont
+    """
 
-    href_list = get_many_recipes_urls(URL_INIT, 1)
+    list_categories = obtain_main_categories(URL_HOME)
+
+    href_list = get_many_recipes_urls(list_categories[5], 1) #TODO iterate for all categories and append the href_list, don't forget save the original category! 
+                                                             #the first 4 components to the list_categories are publications. i need drop this
 
     recipes_df = create_recipes(href_list)
+    
+    
 
 
     
