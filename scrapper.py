@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
-import sys
+from pathlib import Path
 
 URL_INIT = "https://www.recetasgratis.net/Recetas-de-Aperitivos-tapas-listado_receta-1_1.html"
 URL_HOME = 'https://www.recetasgratis.net/'
@@ -29,7 +29,7 @@ def get_urls_create_list(url):
 
 def get_new_page(url):
     """
-    Get the next page url's.
+    Get the next page url's, from the list pagination.
     Input: URL  with galery
     Output: Next page url's  
     """
@@ -61,15 +61,18 @@ def get_many_recipes_urls(initial_url, pages):
 
 def create_recipes(href_list):
     """
-    Get list of url's and go one for one to get information, create dataframe with this info. 
+    Get list of url's and go one for one to get the information we need, create json with this. 
     Input: List of urls
-    Output: Dataframe with information
+    Output: json with information
     """
     recipes_df = pd.DataFrame(columns=['recipe_id','url','title','ingredients','steps','diners','duration','difficulty'])
 
     for i in range(len(href_list)-1):
+        SLEEP_SEC = 2
+        NAME_FOLDER_DATA_RAW = '/data_row'
         ingredient_list = []
         steps_list = []
+
         
         resp = requests.get(href_list[i])
         html_entire = BeautifulSoup(resp.content, 'html.parser')
@@ -124,9 +127,19 @@ def create_recipes(href_list):
                   'difficulty': difficulty}
         print(recipe)
 
+        directory_data_raw = Path(str(Path.cwd()) + NAME_FOLDER_DATA_RAW)
+        
+        
         recipes_df = recipes_df.append(recipe, ignore_index=True)
-        recipes_df.to_excel('/Users/german/Desktop/thinker_cooker/recipes_df.xlsx')
-        time.sleep(2)
+        recipes_df.to_excel(str(Path.cwd()) + '/recipes_df.xlsx')
+
+        time.sleep(SLEEP_SEC)
+
+        if directory_data_raw.exists():
+            return print("existe data_raw folder")
+        else:
+            directory_data_raw.mkdir()
+            return print("se creo carpeta data_raw")
 
     return recipes_df
     
@@ -139,8 +152,14 @@ def obtain_main_categories(url):
     resp = requests.get(url)
     html_entire = BeautifulSoup(resp.content, 'html.parser')
     list_categories = []
+    names_categories = []
     for i in html_entire.find_all('a', class_='titulo', href = True):
-        list_categories.append(i.get('href'))
+        if "Recetas" in i.text:
+            list_categories.append(i.get('href'))
+            names_categories.append(i.text)
+
+    print (names_categories)
+        
     return list_categories
         
 
@@ -160,10 +179,3 @@ if __name__ == "__main__":
                                                              #the first 4 components to the list_categories are publications. i need drop this
 
     recipes_df = create_recipes(href_list)
-    
-    
-
-
-    
-
-
