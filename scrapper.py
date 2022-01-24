@@ -5,13 +5,14 @@ import pandas as pd
 import time
 from pathlib import Path
 
-URL_INIT = "https://www.recetasgratis.net/Recetas-de-Aperitivos-tapas-listado_receta-1_1.html"
+from save_data import save_recipe
+
 URL_HOME = 'https://www.recetasgratis.net/'
 
 
 def get_urls_create_list(url):
     """
-    Get the all url's posts with the page (received url) and create a python list.
+    Get the all url's posts with the page (received url) and create list.
     Input: URL 
     Output: List with all recipes url's  
     """
@@ -27,6 +28,7 @@ def get_urls_create_list(url):
 
     return href_list
 
+
 def get_new_page(url):
     """
     Get the next page url's, from the list pagination.
@@ -39,11 +41,12 @@ def get_new_page(url):
     url_next_page = html_entire.find('a', class_='next ga', href = True)
     return url_next_page.get("href")
     
+
 def get_many_recipes_urls(initial_url, pages):
     """
     Get url's from many pages, iterate through the pages getting urls. 
     Input: 
-        - URL  with initial page
+        - initial_url: URL  with initial page
         - pages to iterate 
     Output: Next page url's  
     """
@@ -59,6 +62,7 @@ def get_many_recipes_urls(initial_url, pages):
 
     return recipes_list_url
 
+
 def create_recipes(href_list):
     """
     Get list of url's and go one for one to get the information we need, create json with this. 
@@ -66,6 +70,7 @@ def create_recipes(href_list):
     Output: json with information
     """
     recipes_df = pd.DataFrame(columns=['recipe_id','url','title','ingredients','steps','diners','duration','difficulty'])
+    print(f"Cantidad de URLs: {len(href_list)}")
 
     for i in range(len(href_list)-1):
         SLEEP_SEC = 2
@@ -127,25 +132,12 @@ def create_recipes(href_list):
                   'difficulty': difficulty}
         print(recipe)
 
-        directory_data_raw = Path(str(Path.cwd()) + NAME_FOLDER_DATA_RAW)
-        
-        
-        recipes_df = recipes_df.append(recipe, ignore_index=True)
-        recipes_df.to_excel(str(Path.cwd()) + '/recipes_df.xlsx')
+        save_recipe(recipe, NAME_FOLDER_DATA_RAW)
 
-        time.sleep(SLEEP_SEC)
-
-        if directory_data_raw.exists():
-            return print("existe data_raw folder")
-        else:
-            directory_data_raw.mkdir()
-            return print("se creo carpeta data_raw")
-
-    return recipes_df
     
 def obtain_main_categories(url):
     """
-    This funtion obtain all categories urls for start to scrapping.
+    This function obtain all categories urls for start to scrapping.
     Input: home url
     Output: list with all categories url
     """
@@ -160,7 +152,7 @@ def obtain_main_categories(url):
 
     print (names_categories)
         
-    return list_categories
+    return list_categories, names_categories
         
 
 if __name__ == "__main__":
@@ -173,9 +165,9 @@ if __name__ == "__main__":
     4. enter inside each publication and save the information that i wont
     """
 
-    list_categories = obtain_main_categories(URL_HOME)
+    list_categories, names_categories = obtain_main_categories(URL_HOME)
 
-    href_list = get_many_recipes_urls(list_categories[5], 1) #TODO iterate for all categories and append the href_list, don't forget save the original category! 
+    href_list = get_many_recipes_urls(list_categories[1], 1) #TODO iterate for all categories and append the href_list, don't forget save the original category! 
                                                              #the first 4 components to the list_categories are publications. i need drop this
 
     recipes_df = create_recipes(href_list)

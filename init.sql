@@ -1,5 +1,4 @@
-
-
+--table for the clean recipess
 CREATE TABLE IF NOT EXISTS recetas(
     id_receta INT PRIMARY KEY,
     titulo VARCHAR(80) NOT NULL,
@@ -13,9 +12,23 @@ CREATE TABLE IF NOT EXISTS recetas(
     created TIMESTAMP NOT NULL
 );
 
+--table for clean ingredients
 CREATE TABLE IF NOT EXISTS ingredientes(
     id_ingrediente INT PRIMARY KEY,
     nombre VARCHAR(80) NOT NULL,
     unidad_de_medida VARCHAR(80)
+);
+
+--table for raw recipes, before downloaded
+CREATE TABLE IF NOT EXISTS recetas_raw(
+    index_ INT PRIMARY KEY,
+    recipe_id INT NOT NULL,
+    url_ VARCHAR(120) NOT NULL,
+    title VARCHAR(300) NOT NULL,
+    ingredients VARCHAR,
+    steps VARCHAR,
+    duration TIMESTAMP,
+    difficulty VARCHAR(10),
+    donwloaded_time TIMESTAMP NOT NULL
 );
 
