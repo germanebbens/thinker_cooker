@@ -1,20 +1,26 @@
-from importlib.resources import path
+from typing import Dict, List
+
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
-import time
-from pathlib import Path
 
 from save_data import save_recipe
 
 URL_HOME = 'https://www.recetasgratis.net/'
 
 
-def get_urls_create_list(url):
-    """
-    Get the all url's posts with the page (received url) and create list.
-    Input: URL 
-    Output: List with all recipes url's  
+def get_urls_create_list(url: str) -> List[str]:
+    """Get the all url's posts with the page (received url) and create list.
+
+    Parameters
+    ----------
+    url : str
+        The url to inspect
+
+    Returns
+    -------
+    list of str
+        List with all recipes url's
     """
     href_list = []
     resp = requests.get(url)
@@ -29,11 +35,18 @@ def get_urls_create_list(url):
     return href_list
 
 
-def get_new_page(url):
-    """
-    Get the next page url's, from the list pagination.
-    Input: URL  with galery
-    Output: Next page url's  
+def get_new_page(url: str) -> str:
+    """Get the next page url's, from the list pagination.
+
+    Parameters
+    ----------
+    url : str
+        URL with galery
+
+    Returns
+    -------
+    str
+        Next page url's
     """
     resp = requests.get(url)
 
@@ -42,13 +55,20 @@ def get_new_page(url):
     return url_next_page.get("href")
     
 
-def get_many_recipes_urls(initial_url, pages):
-    """
-    Get url's from many pages, iterate through the pages getting urls. 
-    Input: 
-        - initial_url: URL  with initial page
-        - pages to iterate 
-    Output: Next page url's  
+def get_many_recipes_urls(initial_url: str, pages: int) -> List[str]:
+    """Get url's from many pages, iterate through the pages getting urls. 
+
+    Parameters
+    ----------
+    initial_url : str
+        URL with initial page
+    pages to iterate : int
+        pages to iterate
+
+    Returns
+    -------
+    list of str
+        Next page urls 
     """
     recipes_list_url = []
 
@@ -63,11 +83,18 @@ def get_many_recipes_urls(initial_url, pages):
     return recipes_list_url
 
 
-def create_recipes(href_list):
-    """
-    Get list of url's and go one for one to get the information we need, create json with this. 
-    Input: List of urls
-    Output: json with information
+def create_recipes(href_list: List[str]) -> Dict:
+    """Get list of url's and go one for one to get the information we need, create json with this. 
+
+    Parameters
+    ----------
+    href_list : list of str
+        List of urls
+
+    Returns
+    -------
+    dict
+        json with information
     """
     recipes_df = pd.DataFrame(columns=['recipe_id','url','title','ingredients','steps','diners','duration','difficulty'])
     print(f"Cantidad de URLs: {len(href_list)}")
@@ -135,11 +162,18 @@ def create_recipes(href_list):
         save_recipe(recipe, NAME_FOLDER_DATA_RAW)
 
     
-def obtain_main_categories(url):
-    """
-    This function obtain all categories urls for start to scrapping.
-    Input: home url
-    Output: list with all categories url
+def obtain_main_categories(url: str) -> List[str]:
+    """This function obtain all categories urls for start to scrapping.
+
+    Parameters
+    ----------
+    url : str
+        home url
+
+    Returns
+    -------
+    list of str
+        list with all categories url
     """
     resp = requests.get(url)
     html_entire = BeautifulSoup(resp.content, 'html.parser')
