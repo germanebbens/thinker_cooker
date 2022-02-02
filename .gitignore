@@ -1,0 +1,6 @@
+/.venv
+notas_greko.txt
+/.vscode
+/data_row
+
+__pycache__/
