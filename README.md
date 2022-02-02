@@ -18,6 +18,7 @@ Install requirements
 ## Project Structure
 The scrapper.py file have the necessary process to scrapping the first webpage and load the recipes in one xlsx file. I use [Recetas Gratis](www.recetasgratis.net) page and this web doesn't have one page where we have a complete list with all recipes of the site, so the script require we send the main category url to start looking and saving recipes.
 
+TODO: remove credentials
 QAgkt3BvuCrsQEMA
 admin
 
@@ -46,6 +47,7 @@ for run
 
 # Postgres
 
+TODO: this line fails
 docker-compose up --build 
 
 psql -h localhost -p 5432 -d test_db -U root 
